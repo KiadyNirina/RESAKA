@@ -22,3 +22,7 @@ Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> 
     Route::get('/{id}', 'post') -> name('post');
 
 });
+
+Route::get('/', function() {
+    return view('welcome');
+});
