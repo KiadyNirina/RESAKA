@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> group(function(){
+
+    Route::get('/', 'all') -> name('all');
+    Route::get('/{id}', 'post') -> name('post');
+
 });
