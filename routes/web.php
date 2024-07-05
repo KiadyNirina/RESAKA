@@ -22,7 +22,7 @@ Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> 
     Route::get('/{id}', 'post') -> name('post');
 });
 
-Route::get('/') -> name('register.') -> controller(RegisterController::class) -> group(function(){
+Route::prefix('/') -> name('register.') -> controller(RegisterController::class) -> group(function(){
     Route::get('login', 'login') -> name('login');
     Route::get('signup', 'signup') -> name('signup');
 });
