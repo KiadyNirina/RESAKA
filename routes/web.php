@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,10 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> group(function(){
-
     Route::get('/', 'all') -> name('all');
     Route::get('/{id}', 'post') -> name('post');
+});
 
+Route::get('/') -> name('register.') -> controller(RegisterController::class) -> group(function(){
+    Route::get('login', 'login') -> name('login');
+    Route::get('signup', 'signup') -> name('signup');
 });
 
 Route::get('/', function() {
