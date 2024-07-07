@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> group(function(){
     Route::get('/', 'all') -> name('all');
     Route::get('/{id}', 'post') -> name('post');
+    Route::get('/store_data', 'store') -> name('store');
+    Route::get('/create', 'create_post') -> name('create_post');
 });
 
 Route::prefix('/') -> name('register.') -> controller(RegisterController::class) -> group(function(){

@@ -5,6 +5,15 @@
 
     <h1>Bonjour</h1>
 
+    <!-- home.blade.php -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <a href="{{ route('home.create_post') }}"> Ajouter une nouvelle post</a>
+
     <div class="content">
         @foreach( $posts as $post )
             <ul>
