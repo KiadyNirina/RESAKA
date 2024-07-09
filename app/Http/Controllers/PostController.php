@@ -16,15 +16,22 @@ class PostController extends Controller
 
     public function all_order_by_created_date() {
         $posts = new Post();
-        return view('home.all', [
-            "posts" => $posts -> orderBy('created_at', 'desc') -> get()
+        return view('home.home', [
+            "posts" => $posts -> orderBy('created_at', 'asc') -> get()
         ]);
     }
 
     public function all_order_by_updated_date() {
         $posts = new Post();
-        return view('home.all', [
+        return view('home.home', [
             "posts" => $posts -> orderBy('updated_at', 'desc') -> get()
+        ]);
+    }
+
+    public function all_order_by_id() {
+        $posts = new Post();
+        return view('home.home', [
+            "posts" => $posts -> orderBy('id', 'asc') -> get()
         ]);
     }
 

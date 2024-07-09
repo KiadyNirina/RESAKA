@@ -31,8 +31,9 @@ Route::prefix('/') -> name('register.') -> controller(RegisterController::class)
 // Home page routing 
 Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> group(function(){
     Route::get('/', 'all') -> name('all');                                                                                  // display all list
-    Route::get('/#created_at', 'all_order_by_created_date') -> name('all_order_by_created_date');                           // order by created_at
-    Route::get('/#updated_at', 'all_order_by_updated_date') -> name('all_order_by_updated_date');                           // order by updated_at
+    Route::get('/q=created_at', 'all_order_by_created_date') -> name('all_order_by_created_date');                          // order by created_at
+    Route::get('/q=updated_at', 'all_order_by_updated_date') -> name('all_order_by_updated_date');                          // order by updated_at
+    Route::get('/q=id', 'all_order_by_id') -> name('all_order_by_id');                                                      // order by id
     Route::get('/{id}', 'post') -> name('post');                                                                            // display one list
 });
 

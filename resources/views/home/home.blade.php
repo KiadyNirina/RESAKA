@@ -15,7 +15,7 @@
     <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
     <p>Trier par :</p>
     <ul>
-        <li><a href="">Id</a></li>
+        <li><a href="{{ route('home.all_order_by_id') }}">Id</a></li>
         <li><a href="">Description</a></li>
         <li><a href="">Picture</a></li>
         <li><a href="{{ route('home.all_order_by_created_date') }}">Date de création</a></li>
