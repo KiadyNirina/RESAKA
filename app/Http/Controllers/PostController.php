@@ -21,6 +21,10 @@ class PostController extends Controller
         ]);
     }
 
+    public function create() {
+        return view('home.create');
+    }
+
     public function store( Request $request ) {
         $validatedData = $request -> validate([
             'description' => 'required|string|max:255',
@@ -33,10 +37,29 @@ class PostController extends Controller
 
         $newData -> save();
 
-        return redirect() -> route('home') -> with('success', 'Données ajoutées avec succès.');
+        return redirect() -> route('home.all') -> with('success', 'Données ajoutées avec succès.');
     }
 
-    public function create_post() {
-        return view('home.create');
+    public function update( string $id ) {
+        $form = Post::find( $id );
+        return view('home.update', [
+            "form" => $form
+        ]);
+    }
+
+    public function update_store( Request $request, string $id ) {
+        $uptadedData = Post::find( $id );
+
+        $this -> validate($request, [
+            'description' => 'required|string|max:255',
+            'picture' => 'required|string|max:255'
+        ]);
+
+        $uptadedData -> description = $request -> input('description');
+        $uptadedData -> picture = $request -> input('picture');
+
+        $uptadedData -> save();
+
+        return redirect() -> route('home.all') -> with('success', 'Données mises à jour avec succès.');
     }
 }

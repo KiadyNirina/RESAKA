@@ -12,12 +12,12 @@
         </div>
     @endif
 
-    <a href="{{ route('home.create_post') }}"> Ajouter une nouvelle post</a>
+    <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
 
     <div class="content">
         @foreach( $posts as $post )
             <ul>
-                <li><a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a></li>
+                <li><a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a> <a href="{{ route('post.update', ['id' => $post -> id]) }}"><button>Modifier</button></a></li>
             </ul>
         @endforeach
     </div>

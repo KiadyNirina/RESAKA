@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <form action="{{ route('home.store_data') }}" method="post">
+    <form action="{{ route('post.store') }}" method="POST">
+        @csrf
         <label for="">Description</label>
         <input type="text" name="description">
 
