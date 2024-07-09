@@ -19,7 +19,7 @@
         <li><a href="">Description</a></li>
         <li><a href="">Picture</a></li>
         <li><a href="{{ route('home.all_order_by_created_date') }}">Date de création</a></li>
-        <li><a href="">Date de modification</a></li>
+        <li><a href="{{ route('home.all_order_by_updated_date') }}">Date de modification</a></li>
     </ul>
 
     <div class="content">

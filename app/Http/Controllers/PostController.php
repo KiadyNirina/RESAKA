@@ -21,6 +21,13 @@ class PostController extends Controller
         ]);
     }
 
+    public function all_order_by_updated_date() {
+        $posts = new Post();
+        return view('home.all', [
+            "posts" => $posts -> orderBy('updated_at', 'desc') -> get()
+        ]);
+    }
+
     public function post( string $id ) {
         $post = new Post();
         return view('home.post', [
@@ -64,6 +71,7 @@ class PostController extends Controller
 
         $uptadedData -> description = $request -> input('description');
         $uptadedData -> picture = $request -> input('picture');
+        $uptadedData -> updated_at = now();
 
         $uptadedData -> save();
 

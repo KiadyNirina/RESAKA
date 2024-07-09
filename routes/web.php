@@ -32,6 +32,7 @@ Route::prefix('/') -> name('register.') -> controller(RegisterController::class)
 Route::prefix('/home') -> name('home.') -> controller(PostController::class) -> group(function(){
     Route::get('/', 'all') -> name('all');                                                                                  // display all list
     Route::get('/#created_at', 'all_order_by_created_date') -> name('all_order_by_created_date');                           // order by created_at
+    Route::get('/#updated_at', 'all_order_by_updated_date') -> name('all_order_by_updated_date');                           // order by updated_at
     Route::get('/{id}', 'post') -> name('post');                                                                            // display one list
 });
 
