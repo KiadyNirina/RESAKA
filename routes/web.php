@@ -40,4 +40,5 @@ Route::prefix('/') -> name('post.') -> controller(PostController::class) -> grou
     Route::post('create_post', 'store') -> name('store');                       // for adding
     Route::get('update_post/{id}', 'update') -> name('update');     
     Route::post('update_post/{id}', 'update_store') -> name('update_store');    // for updating
+    Route::delete('delete/{id}', 'delete_store') -> name('delete_store');       // for deleting
 } );

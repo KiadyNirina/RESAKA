@@ -62,4 +62,10 @@ class PostController extends Controller
 
         return redirect() -> route('home.all') -> with('success', 'Données mises à jour avec succès.');
     }
+
+    public function delete_store( string $id ) {
+        $form = Post::find( $id );
+        $form -> delete();
+        return redirect() -> route('home.all') -> with('success', 'Supprimée avec succès.');
+    }
 }
