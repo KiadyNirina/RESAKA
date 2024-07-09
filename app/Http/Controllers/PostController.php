@@ -14,6 +14,13 @@ class PostController extends Controller
         ]);
     }
 
+    public function all_order_by_created_date() {
+        $posts = new Post();
+        return view('home.all', [
+            "posts" => $posts -> orderBy('created_at', 'desc') -> get()
+        ]);
+    }
+
     public function post( string $id ) {
         $post = new Post();
         return view('home.post', [
