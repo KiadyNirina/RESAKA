@@ -12,6 +12,12 @@
         </div>
     @endif
 
+    <form action="{{ route('home.all') }}" method="GET">
+        @csrf
+        <input type="search" name="search" id="">
+        <button type="submit">Rechercher</button>
+    </form>
+
     <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
     <p>Trier par :</p>
     <ul>
@@ -23,20 +29,41 @@
     </ul>
 
     <div class="content">
-        @foreach( $posts as $post )
-            <ul>
-                <li>{{ $post -> id }} : 
-                    created at : {{ $post -> created_at }}
-                    <a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a> 
-                    <a href="{{ route('post.update', ['id' => $post -> id]) }}"><button>Modifier</button></a>
-                    <form action="{{ route('post.delete_store', ['id' => $post -> id]) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button>Supprimer</button>
-                    </form>
-                </li>
-            </ul>
-        @endforeach
+        @if( isset($posts) )
+
+            @foreach( $posts as $post )
+                <ul>
+                    <li>{{ $post -> id }} : 
+                        created at : {{ $post -> created_at }}
+                        <a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a> 
+                        <a href="{{ route('post.update', ['id' => $post -> id]) }}"><button>Modifier</button></a>
+                        <form action="{{ route('post.delete_store', ['id' => $post -> id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button>Supprimer</button>
+                        </form>
+                    </li>
+                </ul>
+            @endforeach
+
+        @else
+
+            @foreach( $posts as $post )
+                <ul>
+                    <li>{{ $post -> id }} : 
+                        created at : {{ $post -> created_at }}
+                        <a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a> 
+                        <a href="{{ route('post.update', ['id' => $post -> id]) }}"><button>Modifier</button></a>
+                        <form action="{{ route('post.delete_store', ['id' => $post -> id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button>Supprimer</button>
+                        </form>
+                    </li>
+                </ul>
+            @endforeach
+
+        @endif
     </div>
 
 @endsection

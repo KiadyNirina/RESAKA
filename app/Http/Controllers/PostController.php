@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\AssignOp\Pow;
 
 class PostController extends Controller
 {
-    public function all() {
+    public function all(Request $request) {
         $posts = new Post();
+        $query = $request -> input('search');
+
+        if( $query ) {
+            $results = $posts -> where('description', 'LIKE', "%{$query}%") -> get();
+        } else {
+            $results = $posts -> all();
+        }
+
         return view('home.home', [
-            "posts" => $posts -> all()
+            "posts" => $results
         ]);
     }
 
