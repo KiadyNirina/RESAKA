@@ -28,6 +28,7 @@ Route::prefix('/') -> name('register.') -> controller(RegisterController::class)
     Route::get('signup', 'signup') -> name('signup');                                                                       // signup
     Route::post('login_action', 'login_action') -> name('login_action');                                                    // login action
     Route::post('signup_action', 'signup_action') -> name('signup_action');                                                 // signup action
+    Route::get('logout', 'logout_action') -> name('logout_action');                                                        // logout action
 });
 
 // Home page routing 

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\AssignOp\Pow;
 
 class PostController extends Controller
 {
     public function all(Request $request) {
         $posts = new Post();
+        $user = Auth::user();
         $query = $request -> input('search');
 
         if( $query ) {
@@ -19,7 +21,8 @@ class PostController extends Controller
         }
 
         return view('home.home', [
-            "posts" => $results
+            "posts" => $results,
+            "user" => $user
         ]);
     }
 

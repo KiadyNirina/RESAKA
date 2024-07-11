@@ -18,7 +18,7 @@ class RegisterController extends Controller
     public function signup() {
         return view('register.signup');
     }
-    
+
 
     public function login_action( Request $request ) {
         $this -> validate( 
@@ -55,6 +55,12 @@ class RegisterController extends Controller
         $user -> password = Hash::make( $request -> input('password') );
         $user -> save();
 
+        return redirect() -> route('register.login');
+    }
+
+
+    public function logout_action( Request $request ) {
+        Auth::logout();
         return redirect() -> route('register.login');
     }
 }
