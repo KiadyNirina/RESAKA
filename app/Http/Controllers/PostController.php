@@ -14,6 +14,10 @@ class PostController extends Controller
         $user = Auth::user();
         $query = $request -> input('search');
 
+        if( !Auth::check() ) {
+            return redirect() -> route('register.login');
+        } 
+
         if( $query ) {
             $results = $posts -> where('description', 'LIKE', "%{$query}%") -> get();
         } else {
