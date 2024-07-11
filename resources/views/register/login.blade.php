@@ -12,10 +12,11 @@
             <p>Veuillez entrez votre nom et mot de passe pour vous connectez!</p>
                 
             <div class="w3-padding-16">
-                <form action="" method="POST">
+                <form action="{{ route('register.login_action') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="">Nom : </label>
-                        <input class="w3-input w3-light-grey" type="text" name="name" id="" placeholder="Ex : John Doe">
+                        <input class="w3-input w3-light-grey" type="text" name="email" id="" placeholder="Ex : John Doe">
                     </div>
                     
                     <div class="form-group w3-margin-top">

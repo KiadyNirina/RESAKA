@@ -26,6 +26,7 @@ Route::get('/', function() {
 Route::prefix('/') -> name('register.') -> controller(RegisterController::class) -> group(function(){
     Route::get('login', 'login') -> name('login');                                                                          // login
     Route::get('signup', 'signup') -> name('signup');                                                                       // signup
+    Route::post('login_action', 'login_action') -> name('login_action');
 });
 
 // Home page routing 
