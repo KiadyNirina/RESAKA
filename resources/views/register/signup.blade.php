@@ -12,15 +12,13 @@
             <p>Veuillez entrez votre information pour créer votre compte!</p>
                 
             <div class="w3-padding-16">
-                <form action="" method="POST">
+                <form action="{{ route('register.signup_action') }}" method="POST">
+                    
+                    @csrf
+                    
                     <div class="form-group">
                         <label for="">Nom : </label>
                         <input class="w3-input w3-light-grey" type="text" name="name" id="" placeholder="Ex : John Doe">
-                    </div>
-                    
-                    <div class="form-group w3-margin-top">
-                        <label for="">Âge :</label>
-                        <input class="w3-input w3-light-grey" type="text" name="age" id="" placeholder="Ex : 20">
                     </div>
 
                     <div class="form-group w3-margin-top">
@@ -35,7 +33,7 @@
 
                     <div class="form-group w3-margin-top">
                         <label for="">Confirmation mot de passe :</label>
-                        <input class="w3-input w3-light-grey" type="password" name="confirm_password" id="" placeholder="Ex : **************">
+                        <input class="w3-input w3-light-grey" type="password" name="password_confirmation" id="" placeholder="Ex : **************">
                     </div>
 
                     <button class="w3-margin-top w3-button w3-border" type="submit" name="submit">S'inscrire</button>
