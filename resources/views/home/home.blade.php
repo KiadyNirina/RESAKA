@@ -60,12 +60,15 @@
                     <li>{{ $post -> id }} : 
                         created at : {{ $post -> created_at }}
                         <a href="{{ route('home.post', ['id' => $post -> id]) }}">{{ $post -> description }}</a> 
+
+                        @if( $post -> user_id === Auth::id() )
                         <a href="{{ route('post.update', ['id' => $post -> id]) }}"><button>Modifier</button></a>
                         <form action="{{ route('post.delete_store', ['id' => $post -> id]) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button>Supprimer</button>
                         </form>
+                        @endif
                     </li>
                 </ul>
             @endforeach
