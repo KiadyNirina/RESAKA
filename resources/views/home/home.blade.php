@@ -3,10 +3,6 @@
 @section('title', 'Accueil')
 @section('content')
 
-    <form action="{{ route('register.logout_action') }}" method="get">
-        <button type="submit">Se déconnecter</button>
-    </form>
-
     <h1>Bonjour {{ $user -> name }}</h1>
 
     <!-- home.blade.php -->

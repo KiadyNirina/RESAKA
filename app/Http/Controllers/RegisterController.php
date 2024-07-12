@@ -12,7 +12,8 @@ class RegisterController extends Controller
 {
     public function login() {
         if( Auth::check() ) {
-            return redirect() -> route('home.all');
+            return redirect() 
+                -> route('home.all');
         }
         return view('register.login');
     }
@@ -33,23 +34,39 @@ class RegisterController extends Controller
 
         $query = $request -> only(['email', 'password']);
         if( Auth::attempt($query) ) {
-            return redirect() -> intended(route('home.all'));
+            return redirect() 
+                -> intended(route('home.all'));
         }
 
-        return back() -> withErrors(['email' => 'Requête invalide']);
+        return back() 
+            -> withErrors(['error' => 'Email ou mot de passe invalide'])
+            -> withInput();
     }
 
 
     public function signup_action( Request $request ) {
         $validator = Validator::make( $request -> all(), [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|min:8'
         ] );
 
+        $validator -> messages([
+            'name.required' => 'Le nom est requis',
+            'name.max' => 'Le nom ne doit pas contenir plus de 50 caractères',
+            'email.required' => 'L\'email est requis',
+            'email.email' => 'L\'email n\'est pas correcte',
+            'email.unique' => 'Cette emil est déjà prise',
+            'password.required' => 'Le mot de passe est requis',
+            'password.min' => 'Le mot de passe doit contenir au moins 8 caractères',
+            'password_confirmation.required' => 'Le mot de passe de confirmation est requis',
+        ]);
+
         if( $validator -> fails() ) {
-            return back() -> withErrors( $validator );
+            return back() 
+                -> withErrors( $validator ) 
+                -> withInput();
         }
 
         $user = new User();
@@ -58,12 +75,14 @@ class RegisterController extends Controller
         $user -> password = Hash::make( $request -> input('password') );
         $user -> save();
 
-        return redirect() -> route('register.login');
+        return redirect() 
+            -> route('register.login');
     }
 
 
     public function logout_action( Request $request ) {
         Auth::logout();
-        return redirect() -> route('register.login');
+        return redirect() 
+            -> route('register.login');
     }
 }
