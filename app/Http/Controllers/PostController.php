@@ -20,9 +20,9 @@ class PostController extends Controller
         } 
 
         if( $query ) {
-            $results = $posts -> where('description', 'LIKE', "%{$query}%") -> get();
+            $results = $posts -> with('user') -> where('description', 'LIKE', "%{$query}%") -> get();
         } else {
-            $results = $posts -> all();
+            $results = $posts -> with('user') -> get();
         }
 
         return view('home.home', [
@@ -33,22 +33,28 @@ class PostController extends Controller
 
     public function all_order_by_created_date() {
         $posts = new Post();
+        $user = Auth::user();
         return view('home.home', [
-            "posts" => $posts -> orderBy('created_at', 'asc') -> get()
+            "posts" => $posts -> orderBy('created_at', 'asc') -> get(),
+            "user" => $user
         ]);
     }
 
     public function all_order_by_updated_date() {
         $posts = new Post();
+        $user = Auth::user();
         return view('home.home', [
-            "posts" => $posts -> orderBy('updated_at', 'desc') -> get()
+            "posts" => $posts -> orderBy('updated_at', 'desc') -> get(),
+            "user" => $user
         ]);
     }
 
     public function all_order_by_id() {
         $posts = new Post();
+        $user = Auth::user();
         return view('home.home', [
-            "posts" => $posts -> orderBy('id', 'asc') -> get()
+            "posts" => $posts -> orderBy('id', 'asc') -> get(),
+            "user" => $user
         ]);
     }
 

@@ -19,7 +19,7 @@
             <a class="w3-bar-item w3-button" href="{{ route('register.signup') }}">S'inscrire</a>
             @else
             <form action="{{ route('register.logout_action') }}" method="get">
-                <button type="submit">Se déconnecter</button>
+                <button class="w3-bar-item w3-button" type="submit">Se déconnecter</button>
             </form>
             @endif
         </div>
