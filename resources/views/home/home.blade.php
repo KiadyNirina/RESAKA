@@ -18,7 +18,7 @@
         <button type="submit">Rechercher</button>
     </form>
 
-    <div class="w3-quarter w3-border">
+    <div class="w3-quarter w3-border w3-padding">
         <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
         <p>Trier par :</p>
         <ul>
@@ -35,7 +35,7 @@
 
             <ul>
             @foreach( $posts as $post )
-                    <li>
+                    <li class="liPost">
                         <div class="info">
                             <img class="user_pic" src="/users/utilisateur.png" alt="">
                             <div class="">
@@ -66,6 +66,7 @@
                                 @endif
                             </div>
                         </div>
+                        <img class="postImg" src="/posts/téléchargement.jpg" alt="">
                         <hr>
         
                     </li>
