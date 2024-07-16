@@ -1,0 +1,40 @@
+.info{
+    display: flex;
+    align-items: center;
+}
+.info span{
+    font-weight: 600;
+}
+#created_at{
+    font-weight: 100;
+    font-size: 10px;
+}
+.user_pic{
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 2px;
+    height: 40px;
+    margin-right: 10px;
+}
+.actionButton{
+    background: none;
+    border: none;
+}
+.actionButton:hover{
+    background: rgb(59, 59, 59);
+    border-radius: 5px;
+}
+.action{
+    display: flex;
+    margin-left: auto;
+}
+.action img{
+    height: 30px;
+}
+.post{
+    display: flex;
+    align-items: center;
+}
+li{
+    margin-bottom: 30px;
+}
