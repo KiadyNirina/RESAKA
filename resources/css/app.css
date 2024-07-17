@@ -42,3 +42,13 @@
     width: 100%;
     border-radius: 10px;
 }
+.searchInput{
+    width: 100%;
+    display: flex;
+}
+.searchInput input{
+    width: 100%;
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+}

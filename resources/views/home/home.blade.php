@@ -14,8 +14,10 @@
 
     <form action="{{ route('home.all') }}" method="GET">
         @csrf
-        <input type="search" name="search" id="">
-        <button type="submit">Rechercher</button>
+        <div class="searchInput">
+            <input type="search" name="search" id="">
+            <button type="submit">Rechercher</button>
+        </div>
     </form>
 
     <div class="w3-quarter w3-border w3-padding">
