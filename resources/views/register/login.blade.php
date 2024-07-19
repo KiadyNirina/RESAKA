@@ -4,7 +4,7 @@
 
     <div class="w3-row w3-margin"> 
         <div class="w3-col s6 w3-center">
-            <img id='profile' src="img/icons/giphy.gif" alt="" style="height: 80%; width: 80%;">  
+            <img id='profile' src="icons/giphy.gif" alt="" style="height: 80%; width: 80%;">  
         </div>
 
         <div class="w3-col s6 w3-padding-16">    
@@ -40,10 +40,10 @@
     </div>
 
     <div class="w3-center w3-black">
-        <img id="mail" src="img/icons/email.png" alt="logo" height="40">
-        <img id="fb" src="img/icons/fb.png" alt="logo" height="40">
-        <img id="insta" src="img/icons/insta.png" alt="logo" height="40">
-        <img id="tel" src="img/icons/tel.png" alt="logo" height="35">
+        <img id="mail" src="icons/email.png" alt="logo" height="40">
+        <img id="fb" src="icons/fb.png" alt="logo" height="40">
+        <img id="insta" src="icons/insta.png" alt="logo" height="40">
+        <img id="tel" src="icons/tel.png" alt="logo" height="35">
     </div>
 
 @endsection

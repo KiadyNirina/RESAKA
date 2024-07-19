@@ -15,7 +15,7 @@
     <form action="{{ route('home.all') }}" method="GET">
         @csrf
         <div class="searchInput">
-            <input type="search" name="search" id="">
+            <input type="search" name="search" id="" placeholder="Search...">
             <button type="submit">Rechercher</button>
         </div>
     </form>
