@@ -9,7 +9,7 @@
 
 <body class="w3-black">
     <div class="w3-bar">
-        <img class="w3-bar-item w3-button" src="img/icons/logo_light.png" alt="logo" height="50">
+        <img class="w3-bar-item w3-button" src="icons/logo_light.png" alt="logo" height="50">
         <span class="w3-bar-item"><strong>RESAKA</strong></span>
         
         <div class="w3-right">

@@ -3,24 +3,9 @@
 @section('title', 'Accueil')
 @section('content')
 
-    <h1>Bonjour {{ $user -> name }}</h1>
-
     <!-- home.blade.php -->
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
 
-    <form action="{{ route('home.all') }}" method="GET">
-        @csrf
-        <div class="searchInput">
-            <input type="search" name="search" id="" placeholder="Search...">
-            <button type="submit">Rechercher</button>
-        </div>
-    </form>
-
-    <div class="w3-quarter w3-border w3-padding">
+    <div class="w3-quarter w3-padding">
         <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
         <p>Trier par :</p>
         <ul>
@@ -32,25 +17,35 @@
         </ul>
     </div>
 
-    <div class="content w3-half w3-border w3-padding">
+    <div class="content w3-half w3-padding">
+        <form action="{{ route('home.all') }}" method="GET">
+            @csrf
+            <div class="searchInput">
+                <input type="search" name="search" id="" placeholder="Search...">
+                <button type="submit">Rechercher</button>
+            </div>
+        </form>
+
         @if( isset($posts) )
 
             <ul>
             @foreach( $posts as $post )
                     <li class="liPost">
-                        <div class="info">
-                            <img class="user_pic" src="/users/utilisateur.png" alt="">
-                            <div class="">
-                                <span>
-                                    @if( Auth::id() === $post -> user_id) 
-                                        You 
-                                    @else 
-                                        {{ $post -> user -> name }} 
-                                    @endif 
-                                </span><br>
-                                <span id="created_at">created at : {{ $post -> created_at }}</span>
+                        <a href="">
+                            <div class="info">
+                                <img class="user_pic" src="/users/utilisateur.png" alt="">
+                                <div class="">
+                                    <span>
+                                        @if( Auth::id() === $post -> user_id) 
+                                            You 
+                                        @else 
+                                            {{ $post -> user -> name }} 
+                                        @endif 
+                                    </span><br>
+                                    <span id="created_at">created at : {{ $post -> created_at }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         
                         <br>
                         

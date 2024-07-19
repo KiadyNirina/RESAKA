@@ -49,11 +49,12 @@
     margin: 10px;
 }
 .searchInput input{
-    width: 50%;
+    width: 100%;
     background: rgba(128, 128, 128, 0);
     border: 1px solid white;
     border-radius: 20px;
     padding: 10px;
+    color: white;
 }
 .searchInput button{
     border-radius: 20px;
