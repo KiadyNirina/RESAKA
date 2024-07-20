@@ -1,10 +1,10 @@
-@extends('base')
+@extends('layoutHome')
 
 @section('title', 'Accueil')
 @section('content')
 
     <!-- home.blade.php -->
-
+<div class="bodyContent">
     <div class="w3-quarter w3-padding">
         <a href="{{ route('post.create') }}"> Ajouter une nouvelle post</a>
         <p>Trier par :</p>
@@ -17,14 +17,7 @@
         </ul>
     </div>
 
-    <div class="content w3-half w3-padding">
-        <form action="{{ route('home.all') }}" method="GET">
-            @csrf
-            <div class="searchInput">
-                <input type="search" name="search" id="" placeholder="Search...">
-                <button type="submit">Rechercher</button>
-            </div>
-        </form>
+    <div class="content w3-half">
 
         @if( isset($posts) )
 
@@ -93,4 +86,6 @@
         @endif
     </div>
 
+</div>
+    
 @endsection

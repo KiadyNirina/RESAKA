@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layoutHome')
 
 @section('title', 'PostDétail')
 @section('content')

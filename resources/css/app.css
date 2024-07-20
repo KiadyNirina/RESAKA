@@ -1,3 +1,10 @@
+.body{
+    background: rgba(0, 0, 0, 0.908);
+    color: white;
+}
+.bodyContent{
+    padding: 60px;
+}
 .info{
     display: flex;
     align-items: center;
@@ -37,16 +44,39 @@
 }
 .liPost{
     margin-bottom: 30px;
+    background: rgb(41, 41, 41);
+    padding: 20px;
+    border-radius: 10px;
+    list-style: none;
+}
+.liPost a{
+    text-decoration: none;
+    color: white;
 }
 .postImg{
     width: 100%;
     border-radius: 10px;
 }
-.searchInput{
+.navBar{
+    position: fixed;
     width: 100%;
+    background: rgb(41, 41, 41);
+    align-items: center;
     display: flex;
-    justify-content: center;
-    margin: 10px;
+}
+.logoBar{
+    display: flex;
+}
+.menuBar{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.searchInput{
+    width: auto;
+    display: flex;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .searchInput input{
     width: 100%;
